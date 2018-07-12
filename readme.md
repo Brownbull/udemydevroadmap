@@ -1,5 +1,6 @@
 # Course Readme
 I will write on this file all the tips, techniques and workflows followed in the course by section, language, task or framework.
+*note: this sign ` is alt + 96*
 ***
 - [Course Readme](#course-readme)
 - [SSH](#ssh)
@@ -9,8 +10,6 @@ I will write on this file all the tips, techniques and workflows followed in the
         - [Create RSA](#create-rsa)
         - [Commands](#commands)
 ***
-*note: this sign ` is alt + 96*
-
 # SSH
 ## Setup SSH on GitHub Account
 
@@ -38,9 +37,16 @@ ssh-keygen -t rsa -b 4096 -C "your_email@example.com" # Windows
 ```
 
 ### Commands
-- **Connection**: ssh {user}@{host}
 ```shell
-ssh brownbull@localhost
+ssh brownbull@localhost # Connect
+# Once connected
+ssh-add -l # see list of identities
+ssh-add -D # Delete all your identities
 ```
+
+***
+# Performance
+## Make a webapp faster
+
 
 
