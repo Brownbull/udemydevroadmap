@@ -83,7 +83,77 @@ body {
     - [imgix](https://www.imgix.com/)
 - **Remove metadata**: remove not needed data from image. can perform that with following examples:
     - [verexif](http://www.verexif.com/)
+
 ### The traveling deliveryman
+#### Paralel request
+Keep in mind the capacity of [paralel request by browser](https://stackoverflow.com/questions/985431/max-parallel-http-connections-in-a-browser)
+
+## Network Optimizations
+### Debug Network performance
+#### Chrome
+- Open **developer tools**, F12
+- Select **Network** tab
+- Configure with **Slow 3G and disable cache**
+- reload page with **Ctrl + Shift + R**
+
+### Minify
+- [JS & CSS](https://www.minifier.org/)
+- minimize images
+- combine files to create fewer files
+
+## Critical Render Path
+### Path
+1. **DOM**
+    1. Html
+2. **CSSOM**
+    1. CSS
+    2. Javascript : Try to put javascript at the end, they block css to load.
+3. **Render Tree**
+4. **Layout**
+5. **Paint**
+    1. Load
+
+### Files considerations
+#### HTML
+- Load style tag in the \<head>
+- Load script right before \</body>
+#### CSS
+- Only load whatever is needed
+- Above the fold loading
+- Media attributes
+- less specificity
+#### JS
+- Load Scripts [asynchronously] or Defer loading of scripts(https://developers.google.com/web/fundamentals/performance/optimizing-content-efficiency/loading-third-party-javascript)
+![webPageLoad](/readmeDeps/webPageLoad.png)
+  - **\<script async\>**: this will execute in low priority anytime during html parsing, uses like google analytics or tracking scripts(third party scripts).
+  - **\<script defer\>**: this will execute after html parsing, uses like stuff that will read on DOM(third party scripts).
+- minimize DOM manipulation
+- Avoid long running javascript
+
+## Measure Performance 
+### Tools 
+- [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/)
+- [WebPageTest](https://www.webpagetest.org/)
+
+### Other Resources:
+- http://optimizilla.com/
+- https://tools.pingdom.com/
+- https://www.thinkwithgoogle.com/feature/mobile/
+- https://developers.google.com/web/tools/lighthouse/
+- http://websitespeedranker.com/
+- https://pageweight.imgix.com/
+- https://developers.google.com/speed/pagespeed/insights/
+- https://passmarked.com/
+- https://images.guide/
+- https://www.crazyegg.com/blog/image-editing-tools/
+
+### Additional image manipulation tools:
+- [XNConvert](https://www.xnview.com/en/xnconvert/): This free, cross-platform tool can handle batched images, and performs resizing, optimization, and other transforms.
+- [ImageOptim](https://imageoptim.com/mac): This free tool is available for Mac and as an online service, and is specifically aimed at optimizing images for speed, including metadata removal (discussed above).
+- [ResizeIt](https://itunes.apple.com/us/app/resizeit/id416280139?mt=12): A Mac-only desktop product that lets you change the size of multiple images simultaneously, and can convert file formats at the same time.
+- [PicResize](http://www.picresize.com/): One of several good browser-based tools that gives you lots of options for cropping, rotating, resizing, adding effects to, and converting images.
+- [Gimp](https://www.gimp.org/): This ever-popular cross-platform tool just gets better with age. Powerful and flexible, Gimp lets you perform a wide variety of image manipulation tasks including, of course, resizing.
+
 
 
 
