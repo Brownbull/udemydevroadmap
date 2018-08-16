@@ -102,6 +102,7 @@ Keep in mind the capacity of [paralel request by browser](https://stackoverflow.
 - combine files to create fewer files
 
 ## Critical Render Path
+![CRP](/readmeDeps/CRP.png)
 ### Path
 1. **DOM**
     1. Html
@@ -154,6 +155,8 @@ Keep in mind the capacity of [paralel request by browser](https://stackoverflow.
 - [PicResize](http://www.picresize.com/): One of several good browser-based tools that gives you lots of options for cropping, rotating, resizing, adding effects to, and converting images.
 - [Gimp](https://www.gimp.org/): This ever-popular cross-platform tool just gets better with age. Powerful and flexible, Gimp lets you perform a wide variety of image manipulation tasks including, of course, resizing.
 
-
+# HTTP/2
+## Resource
+https://developers.google.com/web/fundamentals/performance/http2/
 
 
