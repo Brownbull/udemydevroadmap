@@ -4,15 +4,19 @@ import SearchBox from '../components/SearchBox'
 import Scroll from '../components/Scroll'
 import ErrorBoundry from '../components/ErrorBoundry'
 import './App.css'
-// ReduxSetup 8
-import { setSearchField } from '../actions'
+// ReduxSetup 8 19
+import { setSearchField, requestRobots } from '../actions'
 import { connect } from 'react-redux'
 
 // ReduxSetup 10
 const mapStateToProps = state => {
   return {
-    // ReduxSetup 10 from reducers.js
-    searchField: state.searchField
+    // ReduxSetup 18 10 from reducers.js
+    searchField: state.searchRobots.searchField,
+    // ReduxSetup 19
+    robots: state.requestRobots.searchField,
+    isPending: state.requestRobots.isPending,
+    error: state.requestRobots.error
   }
 }
 
@@ -20,34 +24,28 @@ const mapStateToProps = state => {
 const mapDispatchToProps = (dispatch) => {
   // ReduxSetup 11 from actions.js
   return {
-    changeSearch: (event) => dispatch(setSearchField(event.target.value))
+    changeSearch: (event) => dispatch(setSearchField(event.target.value)),
+    // ReduxSetup 19
+    filterRobots: () => dispatch(requestRobots())
   }
 }
 
 
 class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      robots: []
-    }
-  }
 
   componentDidMount() {
-    fetch('https://jsonplaceholder.typicode.com/users')
-    .then((res) => res.json())
-    .then((robots) => this.setState({ robots: robots }))
-    .catch(() => console.log("something went wrong"))
+    // ReduxSetup 20
+    this.props.filterRobots()
   }
 
   render() {
-    const { robots } = this.state
-    // ReduxSetup 12 set variables from this.props
-    const { searchField, changeSearch } = this.props
+    // ReduxSetup 20 12 set variables from this.props
+    const { searchField, changeSearch, robots, isPending, error } = this.props
     const filteredRobots = robots.filter(robot => {
       return robot.name.toLowerCase().includes(searchField.toLowerCase())
     })
-    if (!robots.length) {
+    // ReduxSetup 21
+    if (isPending) {
       return <h1>Loading...</h1>
     } else {
       return (
