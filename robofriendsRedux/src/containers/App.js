@@ -40,7 +40,7 @@ class App extends Component {
 
   render() {
     // ReduxSetup 20 12 set variables from this.props
-    const { searchField, changeSearch, robots, isPending } = this.props
+    const { searchField, changeSearch, robots, isPending, error } = this.props
     const filteredRobots = robots.filter(robot => {
       return robot.name.toLowerCase().includes(searchField.toLowerCase())
     })
