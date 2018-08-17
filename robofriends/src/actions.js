@@ -1,4 +1,3 @@
-// ReduxSetup 3 16
 import { 
   CHANGE_SEARCH_FIELD,
   REQUEST_ROBOTS_PENDING,
@@ -6,13 +5,11 @@ import {
   REQUEST_ROBOTS_FAILED
  } from './constants'
 
-// ReduxSetup 1
 export const setSearchField = (text) => ({
   type: CHANGE_SEARCH_FIELD,
   payload: text
 })
 
-// ReduxSetup 16 19 high order function
 export const requestRobots = () => (dispatch) => {
   dispatch({ type: REQUEST_ROBOTS_PENDING })
   fetch('https://jsonplaceholder.typicode.com/users')
