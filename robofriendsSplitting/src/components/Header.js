@@ -1,7 +1,10 @@
+// Splitting 1
 import React, { Component } from 'react'
+// Splitting 6
 import CounterButton from './CounterButton'
 
 class Header extends Component {
+  // Splitting 4
   shouldComponentUpdate(nextProps, nextState) {
     return false
   }

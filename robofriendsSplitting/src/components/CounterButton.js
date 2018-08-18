@@ -1,3 +1,4 @@
+// Splitting 5
 import React, { PureComponent } from 'react'
 
 class CounterButton extends PureComponent {

@@ -6,6 +6,7 @@ import ErrorBoundry from '../components/ErrorBoundry'
 import './App.css'
 import { setSearchField, requestRobots } from '../actions'
 import { connect } from 'react-redux'
+// Splitting 3
 import Header from '../components/Header'
 
 const mapStateToProps = state => {
@@ -41,6 +42,7 @@ class App extends Component {
     } else {
       return (
         <div className="App tc">
+          {/* Splitting 2 */}
           <Header />
           <SearchBox changeSearch={changeSearch} />
           <Scroll>

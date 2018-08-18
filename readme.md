@@ -159,9 +159,15 @@ Keep in mind the capacity of [paralel request by browser](https://stackoverflow.
 At the en of the url put **?react_perf** then go to developer tools, then record something with performance and looking deeper on javascript calls now you will see the components used
 ![ReactPerf](/readmeDeps/ReactPerf.png)
 
+### Tree Shaking
+Tree shaking is one of those things that will get optimized and improved upon in the Javascript landscape. For now, though, the best way to use tree shaking in your apps is to follow this wonderful [guide](https://developers.google.com/web/fundamentals/performance/optimizing-javascript/tree-shaking/)
 
 # HTTP/2
 ## Resource
 https://developers.google.com/web/fundamentals/performance/http2/
 
+# PWA
+## Resources
+https://jakearchibald.github.io/isserviceworkerready/
+https://auth0.com/blog/introduction-to-progressive-web-apps-push-notifications-part-3/
 
