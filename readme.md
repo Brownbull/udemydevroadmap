@@ -171,3 +171,34 @@ https://developers.google.com/web/fundamentals/performance/http2/
 https://jakearchibald.github.io/isserviceworkerready/
 https://auth0.com/blog/introduction-to-progressive-web-apps-push-notifications-part-3/
 
+# Testing
+![TestingCycle](./readmeDeps/TestCycle.PNG)
+## Unit Test
+Test individual functions or classes.
+## Integration Test
+Testing how different pieces of code work together.
+## Automation Test
+Testing real life scenarios, automatically.
+
+## Jest
+Framework to make tests, just like mocha, uses describe and it.
+[CheatSheet](https://github.com/sapegin/jest-cheat-sheet)
+
+## Enzyme
+http://airbnb.io/enzyme/docs/api/
+### Snapshot
+Example:
+```Javascript
+it('expect to render Card component', () => {
+  // Snapshot will take a photo of the current component 
+  // and from here compare it against future versions
+  // To update snapshot just change ocmponent and use option u on test menu
+  expect(shallow(<Card />)).toMatchSnapshot()
+})
+```
+
+## Coverage
+Stateless component with Snapshot test in place will have 100% of coverage
+```sh
+npm test -- --coverage
+```
