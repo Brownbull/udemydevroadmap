@@ -202,3 +202,120 @@ Stateless component with Snapshot test in place will have 100% of coverage
 ```sh
 npm test -- --coverage
 ```
+
+# Security
+![Security](./readmeDeps/security.PNG)
+
+## Tools
+- **nsp** : scan local folder
+```sh
+nsp check
+```
+- **synk** : synchronize with repo and scan a loot of stuff
+```sh
+synk auth
+synk test
+```
+
+## Login
+- **winston** : logger
+```sh
+npm install winston
+```
+- **morgan** : get information from submitted info to the page
+```sh
+npm install morgan
+```
+
+## XSS-stored
+try this:
+https://www.hacksplaining.com/exercises/xss-stored
+
+## CSRF
+try this:
+https://www.hacksplaining.com/exercises/csrf
+
+## Code secrets
+### environment variables
+Code secrets in react can be stores in a file called .env in your folder, React will automatically recognize it and take variables from there written as follows:
+```javascript
+REACT_APP_SAY_HI=HIII
+```
+This is because of [dotenv](https://www.npmjs.com/package/dotenv) package. 
+
+### Commit History
+All your history of changes is stored, so a search in all git for "remove password" can show a lot of repositories with the password on file.
+
+## Secure Headers
+[**Helmet**](https://www.npmjs.com/package/helmet): this package will change all your headers information to be secure to expose.
+- *install*:
+```shell
+npm install helmet
+```
+- *usage*:
+```javascript
+const express = require('express')
+const helmet = require('helmet')
+const app = express()
+
+app.use(helmet())
+```
+If you don't use this, then your page could return information like this:
+![helmetwhy](./readmeDeps/helmetwhy.PNG)
+
+## Access Control
+[**Cross Origin Resources Sharing = CORS**](https://www.npmjs.com/package/cors): control who can access to your site, see docs.
+- *install*:
+```shell
+npm install cors
+```
+- *usage*:
+```javascript
+const express = require('express')
+const cors = require('cors')
+const app = express()
+
+app.use(cors())
+```
+
+## Data management
+Use encryption for any data that identifies a User or sensitive identity, and never stores sentsitive information unencrypted.
+### Password Storage
+- [**bcrypt**](https://www.npmjs.com/package/bcrypt): encrypts.
+Reference [hotToEncrypt](https://blog.rangle.io/how-to-store-user-passwords-and-overcome-security-threats-in-2017/)
+
+## MultiRequest Protection
+[**ratelimiter**](https://www.npmjs.com/package/ratelimiter): Helps to handle multi request attacks.
+- *install*:
+```shell
+npm install ratelimiter
+```
+- *usage*:
+```javascript
+var id = req.user._id;
+var limit = new Limiter({ id: id, db: db });
+limit.get(function(err, limit){
+  if (err) return next(err);
+ 
+  res.set('X-RateLimit-Limit', limit.total);
+  res.set('X-RateLimit-Remaining', limit.remaining - 1);
+  res.set('X-RateLimit-Reset', limit.reset);
+ 
+  // all good
+  debug('remaining %s/%s %s', limit.remaining - 1, limit.total, id);
+  if (limit.remaining) return next();
+ 
+  // not good
+  var delta = (limit.reset * 1000) - Date.now() | 0;
+  var after = limit.reset - (Date.now() / 1000) | 0;
+  res.set('Retry-After', after);
+  res.send(429, 'Rate limit exceeded, retry in ' + ms(delta, { long: true }));
+});
+```
+
+## Hacking Resources
+https://www.hacksplaining.com/lessons
+
+## Top Security Issues every Year
+https://www.owasp.org/index.php/Main_Page
+
